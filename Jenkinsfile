@@ -29,11 +29,12 @@ pipeline {
 
         stage('Code Quality (SonarQube)') {
             steps {
-                withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                    bat './gradlew sonarqube'
+                withSonarQubeEnv(SONARQUBE_SERVER) {
+                    bat './gradlew sonar'
                 }
             }
         }
+
 
         stage('Quality Gate') {
             steps {
