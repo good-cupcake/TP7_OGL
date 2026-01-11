@@ -17,20 +17,20 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh './gradlew test'
+                bat './gradlew test'
             }
         }
 
         stage('Code Analysis (Jacoco)') {
             steps {
-                sh './gradlew jacocoTestReport'
+                bat './gradlew jacocoTestReport'
             }
         }
 
         stage('Code Quality (SonarQube)') {
             steps {
                 withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                    sh './gradlew sonarqube'
+                    bat './gradlew sonarqube'
                 }
             }
         }
@@ -45,13 +45,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh './gradlew build'
+                bat './gradlew build'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh './gradlew publish'
+                bat './gradlew publish'
             }
         }
     }
