@@ -5,6 +5,8 @@ pipeline {
         SONARQUBE_SERVER = 'SonarQube'
     }
 
+
+
     stages {
 
         stage('Checkout') {
