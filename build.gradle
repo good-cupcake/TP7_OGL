@@ -35,7 +35,14 @@ publishing {
         }
     }
 }
-
+java {
+    toolchain {
+        languageVersion =JavaLanguageVersion.of(11)
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release =11
+}
  sonar {
      properties {
          property "sonar.projectKey", "TP5-OGL"
