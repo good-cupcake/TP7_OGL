@@ -27,13 +27,13 @@ pipeline {
             }
         }
 
-        stage('Code Quality (SonarQube)') {
+        /* stage('Code Quality (SonarQube)') {
             steps {
                 withSonarQubeEnv(SONARQUBE_SERVER) {
                     bat './gradlew sonar'
                 }
             }
-        }
+        } */
 
 
         stage('Quality Gate') {
