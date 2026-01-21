@@ -22,6 +22,14 @@ pipeline {
             steps {
                 bat './gradlew jacocoTestReport'
             }
+
+            post {
+            	always {
+            			echo 'Publishing Cucumber report'
+            			cucumber buildStatus: 'UNSTABLE',
+            			fileIncludePattern: 'build/reports/cucumber/cucumber.json'
+            		   }
+            	}
         }
 
         stage('Build') {
