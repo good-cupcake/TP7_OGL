@@ -18,9 +18,11 @@ pipeline {
             }
         }
 
-        stage('Code Analysis (Jacoco)') {
+        stage('Cucumber report') {
             steps {
-                bat './gradlew jacocoTestReport'
+                cucumber buildStatus: 'UNSTABLE',
+                                reportTitle: 'My report',
+                                fileIncludePattern: 'reports/example-report.json',
             }
 
             post {
